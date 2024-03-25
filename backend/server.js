@@ -2,17 +2,14 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import { connectToDB } from './database.js';
+import products from "./models/products.js";
 
 const app = express();
 connectToDB();
 app.use(bodyParser.json({ extended: true, limit: '20mb'}));
 app.use(bodyParser.urlencoded({extended: true, limit: '20mb'}));
 app.use(cors());
-
-
-app.get('/', (req, res) => {
-    res.send(`API is running from port ${port}`)
-})
+app.use('/products', products)
 
 const port = 5000;
 
