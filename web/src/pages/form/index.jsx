@@ -6,7 +6,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
 
 const formFields = [
   {
@@ -40,17 +39,7 @@ const formFields = [
     label: "Product rating",
   },
 ];
-
-const initialState = {
-  productName: "",
-  productType: "",
-  productCreator: "",
-  productdescription: "",
-  productPrice: 0,
-  productRating: "",
-};
-function ProductForm() {
-  const [form, setForm] = useState(initialState);
+function ProductForm({form, setForm}) {
 
   return (
     <Stack>
